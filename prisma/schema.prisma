@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Property {
+  id          String   @id @default(cuid())
+  title       String
+  location    String
+  price       String
+  image       String
+  video       String?
+  isLarge     Boolean  @default(false)
+  description String
+  beds        Int
+  baths       Int
+  sqft        Int
+  yearBuilt   Int
+  gallery     String   // Store as JSON string
+  createdAt   DateTime @default(now())
+}
+
+model JournalArticle {
+  id        String   @id @default(cuid())
+  title     String
+  category  String
+  date      String
+  image     String
+  excerpt   String
+  createdAt DateTime @default(now())
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  image     String
+  bio       String
+  createdAt DateTime @default(now())
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  subscribedAt DateTime @default(now())
+}

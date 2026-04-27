@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-charcoal: #1A1A1A;
+  --color-offwhite: #F9F9F7;
+  --color-bronze: #C2A878;
+}
+
+@layer base {
+  body {
+    @apply bg-offwhite text-charcoal antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .animate-scrolldown {
+    animation: scrolldown 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes scrolldown {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Branded Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.3);
+  border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(249, 249, 247, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.6);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 249, 247, 0.6);
+}

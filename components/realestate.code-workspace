@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "realestate",
+			"path": ".."
+		},
+		{
+			"name": "SkeletonKey",
+			"path": "../../SkeletonKey"
+		}
+	],
+	"settings": {}
+}
